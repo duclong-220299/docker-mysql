@@ -1,0 +1,13 @@
+services:
+  db:
+    image: mysql
+    restart: always
+    ports:
+      - 3306:3306
+    volumes:
+      - ./data:/var/lib/mysql
+      - ./my.cnf:/etc/mysql/my.cnf
+    environment:
+      MYSQL_ROOT_PASSWORD: welcome
+      MYSQL_ROOT_HOST: '%'
+        # command: ["mysqld", "--mysql-native-password=ON"]
